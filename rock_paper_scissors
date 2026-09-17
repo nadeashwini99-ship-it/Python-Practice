@@ -1,0 +1,53 @@
+import random
+
+print("===== ROCK PAPER SCISSORS =====")
+
+choices = ["rock", "paper", "scissors"]
+
+user_score = 0
+computer_score = 0
+
+while True:
+    print("\nChoose:")
+    print("1. Rock")
+    print("2. Paper")
+    print("3. Scissors")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "4":
+        break
+
+    if choice not in ["1", "2", "3"]:
+        print("Invalid choice!")
+        continue
+
+    user = choices[int(choice) - 1]
+    computer = random.choice(choices)
+
+    print("\nYou chose:", user)
+    print("Computer chose:", computer)
+
+    if user == computer:
+        print("It's a Tie! 🤝")
+
+    elif (
+        (user == "rock" and computer == "scissors")
+        or (user == "paper" and computer == "rock")
+        or (user == "scissors" and computer == "paper")
+    ):
+        print("You Win! 🎉")
+        user_score += 1
+
+    else:
+        print("Computer Wins! 🤖")
+        computer_score += 1
+
+    print("\nYour Score:", user_score)
+    print("Computer Score:", computer_score)
+
+print("\n===== FINAL SCORE =====")
+print("Your Score:", user_score)
+print("Computer Score:", computer_score)
+print("Thanks for playing! 👋")
